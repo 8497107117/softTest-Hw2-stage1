@@ -19,3 +19,45 @@ TEST(Path_Testing, isValid_year_month) {
     /* valid */
     EXPECT_EQ("16,6,2000", nextDate(15, 6, 2000));
 }
+
+TEST(Path_Testing, 31days_month) {
+    /* isValid day */
+    EXPECT_EQ("invalid input date", nextDate(0, 1, 2000));
+    EXPECT_EQ("invalid input date", nextDate(32, 1, 2000));
+    EXPECT_EQ("invalid input date", nextDate(0, 3, 2000));
+    EXPECT_EQ("invalid input date", nextDate(32, 3, 2000));
+    EXPECT_EQ("invalid input date", nextDate(0, 5, 2000));
+    EXPECT_EQ("invalid input date", nextDate(32, 5, 2000));
+    EXPECT_EQ("invalid input date", nextDate(0, 7, 2000));
+    EXPECT_EQ("invalid input date", nextDate(32, 7, 2000));
+    EXPECT_EQ("invalid input date", nextDate(0, 8, 2000));
+    EXPECT_EQ("invalid input date", nextDate(32, 8, 2000));
+    EXPECT_EQ("invalid input date", nextDate(0, 10, 2000));
+    EXPECT_EQ("invalid input date", nextDate(32, 10, 2000));
+    EXPECT_EQ("invalid input date", nextDate(0, 12, 2000));
+    EXPECT_EQ("invalid input date", nextDate(32, 12, 2000));
+    /* plus year */
+    EXPECT_EQ("1,1,2001", nextDate(31, 12, 2000));
+    EXPECT_EQ("not in range", nextDate(31, 12, 2012));
+    /* plus month */
+    EXPECT_EQ("1,2,2000", nextDate(31, 1, 2000));
+    EXPECT_EQ("1,4,2000", nextDate(31, 3, 2000));
+    EXPECT_EQ("1,6,2000", nextDate(31, 5, 2000));
+    EXPECT_EQ("1,8,2000", nextDate(31, 7, 2000));
+    EXPECT_EQ("1,9,2000", nextDate(31, 8, 2000));
+    EXPECT_EQ("1,11,2000", nextDate(31, 10, 2000));
+    /* plus day */
+    EXPECT_EQ("16,1,2000", nextDate(15, 1, 2000));
+    EXPECT_EQ("16,3,2000", nextDate(15, 3, 2000));
+    EXPECT_EQ("16,5,2000", nextDate(15, 5, 2000));
+    EXPECT_EQ("16,7,2000", nextDate(15, 7, 2000));
+    EXPECT_EQ("16,8,2000", nextDate(15, 8, 2000));
+    EXPECT_EQ("16,10,2000", nextDate(15, 10, 2000));
+    EXPECT_EQ("16,12,2000", nextDate(15, 12, 2000));
+}
+
+TEST(Path_Testing, 30days_month) {
+}
+
+TEST(Path_Testing, February) {
+}
