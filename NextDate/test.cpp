@@ -76,4 +76,25 @@ TEST(Path_Testing, 30days_month) {
 }
 
 TEST(Path_Testing, February) {
+    /* isValid day */
+    EXPECT_EQ("invalid input date", nextDate(0, 2, 1900));
+    EXPECT_EQ("invalid input date", nextDate(29, 2, 1900));
+    EXPECT_EQ("invalid input date", nextDate(30, 2, 1900));
+    EXPECT_EQ("invalid input date", nextDate(0, 2, 1996));
+    EXPECT_EQ("invalid input date", nextDate(30, 2, 1996));
+    EXPECT_EQ("invalid input date", nextDate(0, 2, 1999));
+    EXPECT_EQ("invalid input date", nextDate(29, 2, 1999));
+    EXPECT_EQ("invalid input date", nextDate(30, 2, 1999));
+    EXPECT_EQ("invalid input date", nextDate(0, 2, 2000));
+    EXPECT_EQ("invalid input date", nextDate(30, 2, 2000));
+    /* plus month */
+    EXPECT_EQ("1,3,1900", nextDate(28, 2, 1900));
+    EXPECT_EQ("1,3,1996", nextDate(29, 2, 1996));
+    EXPECT_EQ("1,3,1999", nextDate(28, 2, 1999));
+    EXPECT_EQ("1,3,2000", nextDate(29, 2, 2000));
+    /* plus day */
+    EXPECT_EQ("16,2,1900", nextDate(15, 2, 1900));
+    EXPECT_EQ("16,2,1996", nextDate(15, 2, 1996));
+    EXPECT_EQ("16,2,1999", nextDate(15, 2, 1999));
+    EXPECT_EQ("16,2,2000", nextDate(15, 2, 2000));
 }
