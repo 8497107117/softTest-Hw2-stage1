@@ -8,7 +8,7 @@ all: $(TARGET)
 $(TARGET):
 	$(CXX) -isystem ${GTEST_DIR}/include -I${GTEST_DIR} -pthread -c ${GTEST_DIR}/src/gtest-all.cc  
 	ar -rv libgtest.a gtest-all.o
-	$(CXX) -isystem ${GTEST_DIR}/include -pthread $(OBJECTS) libgtest.a -o $@
+	$(CXX) -isystem ${GTEST_DIR}/include -pthread $(OBJECTS) -fprofile-arcs -ftest-coverage libgtest.a -o $@
 
 clean:
-	rm -f NextDate *.o *.a
+	rm -f NextDate *.o *.a *.gcov *.gcno *.gcda
