@@ -4,6 +4,7 @@
 
 using namespace std;
 
+/* Range */
 TEST(Path_Testing, all_out_of_range) {
     EXPECT_EQ("Value of a,b,c is not in the range of permitted values", isTriangle(0, 0, 0));
     EXPECT_EQ("Value of a,b,c is not in the range of permitted values", isTriangle(201, 0, 0));
@@ -53,4 +54,25 @@ TEST(Path_Testing, c_out_of_range) {
 
 TEST(Path_Testing, none_out_of_range) {
     EXPECT_EQ("Equilateral", isTriangle(100, 100, 100));
+}
+
+/* Type */
+TEST(Path_Testing, not_a_triangle) {
+    EXPECT_EQ("Not a triangle", isTriangle(50, 50, 100));
+    EXPECT_EQ("Not a triangle", isTriangle(50, 100, 50));
+    EXPECT_EQ("Not a triangle", isTriangle(100, 50, 50));
+}
+
+TEST(Path_Testing, Equilateral) {
+    EXPECT_EQ("Equilateral", isTriangle(100, 100, 100));
+}
+
+TEST(Path_Testing, Isosceles) {
+    EXPECT_EQ("Isosceles", isTriangle(100, 100, 50));
+    EXPECT_EQ("Isosceles", isTriangle(50, 100, 100));
+    EXPECT_EQ("Isosceles", isTriangle(100, 50, 100));
+}
+
+TEST(Path_Testing, Scalene) {
+    EXPECT_EQ("Scalene", isTriangle(101, 100, 99));
 }
